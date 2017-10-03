@@ -1,27 +1,27 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app ="NarrowItDownApp">
   <head>
     <title>Narrow Down Your Menu Choice</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
-    <
+    
 </head>
-<body ng-app = "NarrowItDownApp">
+<body>
    <div class="container" ng-controller = "NarrowItDownController as nidctrl">
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
     <div class="form-group">
-      <input type="text" placeholder="search term" class="form-control" ng-model="nidctrl.searchTerm">
+      <input type="text" placeholder="search term" class="form-control" ng-model= "nidctrl.searchTerm">
     </div>
     <div class="form-group narrow-button">
-      <button class="btn btn-primary" ng-click="nidctrl.getItems();">Narrow It Down For Me!</button>
+      <button class="btn btn-primary" ng-click= "nidctrl.searchItem()">Narrow It Down For Me!</button>
     </div>
 
     <!-- found-items should be implemented as a component -->
-    <found-items display-found-items="nidctrl.displayFound" found-items="nidctrl.found" on-remove="nidctrl.removeItem(index);"></found-items>
+    <found-items found="nidctrl.found" on-remove="nidctrl.remove(index)" empty="nidctrl.empty"></found-items>
   </div>
-<script src= "app.js"></script>
 <script src= "angular.min.js"></script>
+<script src= "app.js"></script>
 </body>
 </html>
